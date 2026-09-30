@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NEXTFIX</title>
+</head>
+
+<body>
+
+    <h1>NEXTFIX</h1>
+
+    <div>
+
+        <!-- REGISTER -->
+
+        <div>
+
+            <h2>Register</h2>
+
+            <form action="register" method="POST">
+                {% csrf_token %}
+
+
+                <label>First Name:</label>
+                <input type="text" name="first_name">
+
+                {% if errors.firstnameerror %}
+                    <p>{{ errors.firstnameerror }}</p>
+                {% endif %}
+
+
+                <label>Last Name:</label>
+                <input type="text" name="last_name">
+
+                {% if errors.lastnameerror %}
+                    <p>{{ errors.lastnameerror }}</p>
+                {% endif %}
+
+
+                <label>Email:</label>
+                <input type="text" name="email">
+
+                {% if errors.emailerror %}
+                    <p>{{ errors.emailerror }}</p>
+                {% endif %}
+
+
+                <label>Password:</label>
+                <input type="password" name="password">
+
+                {% if errors.passworderror %}
+                    <p>{{ errors.passworderror }}</p>
+                {% endif %}
+
+
+                <label>Confirm PW:</label>
+                <input type="password" name="confirm_pw">
+
+                {% if errors.confirm_pwerror %}
+                    <p>{{ errors.confirm_pwerror }}</p>
+                {% endif %}
+
+
+                <button type="submit">Submit</button>
+
+            </form>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div>
+
+            <h2>Login</h2>
+
+            {% if errors.loginerror %}
+                <p>{{ errors.loginerror }}</p>
+            {% endif %}
+
+
+            <form action="login" method="POST">
+                {% csrf_token %}
+
+                <label>Email:</label>
+                <input type="text" name="email">
+
+                {% if errors.loginemailerror %}
+                    <p>{{ errors.loginemailerror }}</p>
+                {% endif %}
+
+
+                <label>Password:</label>
+                <input type="password" name="password">
+
+                {% if errors.loginpassworderror %}
+                    <p>{{ errors.loginpassworderror }}</p>
+                {% endif %}
+
+
+                <button type="submit">Submit</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

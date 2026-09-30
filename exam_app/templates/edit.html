@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit show</title>
+</head>
+
+<body>
+
+    <a href="/shows">TV Shows</a>
+    <a href="/logout">Logout</a>
+
+    <h2>Edit Show</h2>
+
+        
+
+
+    <form
+        action="shows/edit/{{ show.id }}"
+        method="POST"
+    >
+
+        {% csrf_token %}
+
+
+        <label>Title:</label>
+
+        <input
+            type="text"
+            name="title"
+            value="{{ show.title }}"
+        >
+
+        {% if errors.titleerror %}
+            <p>{{ errors.titleerror }}</p>
+        {% endif %}
+
+
+        <label>Network:</label>
+
+        <input
+            type="text"
+            name="network"
+            value="{{ show.network }}"
+        >
+
+        {% if errors.networkerror %}
+            <p>{{ errors.networkerror }}</p>
+        {% endif %}
+
+
+        <label>Released Date:</label>
+
+        <input
+            type="date"
+            name="released_date"
+            value="{{ show.released_date }}"
+        >
+
+        {% if errors.releaseddateerror %}
+            <p>{{ errors.releaseddateerror }}</p>
+        {% endif %}
+
+
+        <label>Comments:</label>
+
+        <input
+            type="text"
+            name="comments"
+            value="{{ show.comments }}"
+        >
+
+        {% if errors.commentserror %}
+            <p>{{ errors.commentserror }}</p>
+        {% endif %}
+
+
+        <button type="submit">
+            Update
+        </button>
+
+    </form>
+
+</body>
+</html>

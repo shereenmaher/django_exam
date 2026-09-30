@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Show</title>
+</head>
+
+<body>
+
+
+    <h1>Recommend a New Show </h1>
+
+    <a href="/shows">TV Shows</a>
+    <a href="/logout">Logout</a>
+    
+    <form action="/shows/new" method="POST">
+        {% csrf_token %}
+
+
+        <label>Title:</label>
+
+        <input
+            type="text"
+            name="title"
+        >
+
+        {% if errors.titleerror %}
+            <p>{{ errors.titleerror }}</p>
+        {% endif %}
+
+
+        <label>network:</label>
+
+        <input
+            type="text"
+            name="network"
+        >
+
+        {% if errors.networkerror %}
+            <p>{{ errors.networkerror }}</p>
+        {% endif %}
+
+
+        <label>released_date:</label>
+
+        <input
+            type="date"
+            name="released_date"
+        >
+
+        {% if errors.releaseddateerror %}
+            <p>{{ errors.releaseddateerror }}</p>
+        {% endif %}
+
+        <label>comments:</label>
+
+        <input
+            type="text"
+            name="comments"
+        >
+
+        {% if errors.commentserror %}
+            <p>{{ errors.commentserror }}</p>
+        {% endif %}
+        
+        <button type="submit">
+            Add
+        </button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Details</title>
+</head>
+
+<body>
+
+    
+    <a href="/shows">TV Shows</a>
+    <a href="/logout">Logout</a>
+
+    <h1> {{ show.first_name }}</h1>
+    
+    <p>Recommended By: {{ show.user.first_name }} {{ show.user.last_name }}</p>
+
+    <h3>
+        Network <p>{{ show.network }}</p>
+    </h3>
+
+    <h3>
+        Released Date <p>{{ show.released_date }}</p>
+    </h3>
+    <h3>
+        {{ show.user.first_name }}'s comments
+    </h3>
+    <p>{{  show.comments    }}</p>
+
+
+</body>
+</html>
